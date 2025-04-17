@@ -1,89 +1,282 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
-  padding: 20px;
+:root {
+    --primary-color: #4a6bff;
+    --secondary-color: #f5f5f5;
+    --text-color: #333;
+    --bg-color: #fff;
+    --card-bg: #f9f9f9;
+    --border-color: #ddd;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
 }
 
 .dark-mode {
-  background: #121212;
-  color: #e0e0e0;
+    --primary-color: #6b8cff;
+    --secondary-color: #2d2d2d;
+    --text-color: #f5f5f5;
+    --bg-color: #1a1a1a;
+    --card-bg: #252525;
+    --border-color: #444;
+    --error-color: #ff6b6b;
+    --success-color: #6bff6b;
+    --warning-color: #ffcc6b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-button {
-  padding: 10px 15px;
-  margin: 5px 0;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
+header h1 {
+    font-size: 28px;
+    color: var(--primary-color);
 }
 
-button:hover {
-  background: #388E3C;
+header h1 i {
+    margin-right: 10px;
 }
 
-.loader {
-  display: none;
-  margin: 10px auto;
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #4CAF50;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  animation: spin 1s linear infinite;
+.theme-toggle button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.search-box {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
 }
 
-.result {
-  margin-top: 20px;
-  text-align: left;
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }
 
-.actions {
-  margin-top: 20px;
+.search-box button {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.recent {
-  margin-top: 30px;
+.search-box button:hover {
+    opacity: 0.9;
 }
 
-.recent ul {
-  list-style: none;
-  padding: 0;
+.results {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-.recent li {
-  padding: 5px 0;
-  cursor: pointer;
+@media (min-width: 768px) {
+    .results {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.phone-info, .owner-info {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.phone-info h2, .owner-info h2 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.info-item span:first-child {
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.action-buttons button i {
+    font-size: 14px;
+}
+
+#copyBtn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+#shareBtn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.owner-card {
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.owner-card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.owner-details {
+    margin-bottom: 10px;
+}
+
+.owner-addresses {
+    margin-top: 15px;
+}
+
+.address-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.address-table th, .address-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.address-table th {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.recent-searches {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recent-searches h2 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+#recentList {
+    list-style: none;
+}
+
+#recentList li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+#recentList li:last-child {
+    border-bottom: none;
 }
 
 footer {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 0.9em;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
+    color: var(--text-color);
 }
 
-footer a {
-  color: #0078d7;
-  text-decoration: none;
+/* Status indicators */
+.status-yes {
+    color: var(--error-color);
+    font-weight: bold;
+}
+
+.status-no {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.status-unknown {
+    color: var(--warning-color);
+    font-weight: bold;
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
