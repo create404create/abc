@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USA Number Checker</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>📞 USA Phone Number Lookup</h2>
+
+    <input type="text" id="phoneNumber" placeholder="Enter phone number (USA)" />
+    <button onclick="checkStatus()">🔍 Check Status</button>
+    <div class="loader" id="loader"></div>
+
+    <div id="result" class="result"></div>
+
+    <div class="actions">
+      <button onclick="copyResult()">📋 Copy</button>
+      <button onclick="exportPDF()">📄 Export PDF</button>
+      <button onclick="shareResult()">📤 Share</button>
+      <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+    </div>
+
+    <div class="recent">
+      <h4>Recent Searches</h4>
+      <ul id="recentList"></ul>
+    </div>
+
+    <footer>
+      Made by <a href="skype:live:.cid.6a4827c093354752?chat" target="_blank">Ehtisham</a>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
