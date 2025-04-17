@@ -1,38 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>USA Number Checker</title>
-  <link rel="stylesheet" href="styles.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced DNC & Phone Lookup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <h2>📞 USA Phone Number Lookup</h2>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-phone-alt"></i> Advanced Phone Lookup</h1>
+            <div class="theme-toggle">
+                <button id="themeBtn"><i class="fas fa-moon"></i> Dark Mode</button>
+            </div>
+        </header>
 
-    <input type="text" id="phoneNumber" placeholder="Enter phone number (USA)" />
-    <button onclick="checkStatus()">🔍 Check Status</button>
-    <div class="loader" id="loader"></div>
+        <main>
+            <div class="search-box">
+                <input type="text" id="phoneInput" placeholder="Enter 10-digit US phone number" maxlength="10">
+                <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
 
-    <div id="result" class="result"></div>
+            <div class="results">
+                <div class="phone-info">
+                    <h2>Phone Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span>Phone Number:</span>
+                            <span id="phoneNumber">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span>State:</span>
+                            <span id="phoneState">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span>DNC National:</span>
+                            <span id="dncNational">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span>DNC State:</span>
+                            <span id="dncState">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Litigator:</span>
+                            <span id="litigator">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Blacklist:</span>
+                            <span id="blacklist">-</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="copyBtn"><i class="far fa-copy"></i> Copy Results</button>
+                        <button id="shareBtn"><i class="fas fa-share-alt"></i> Share</button>
+                    </div>
+                </div>
 
-    <div class="actions">
-      <button onclick="copyResult()">📋 Copy</button>
-      <button onclick="exportPDF()">📄 Export PDF</button>
-      <button onclick="shareResult()">📤 Share</button>
-      <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+                <div class="owner-info">
+                    <h2>Potential Owner Information</h2>
+                    <div id="ownersContainer">
+                        <p>No owner information available. Enter a phone number to search.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-searches">
+                <h2>Recent Searches</h2>
+                <ul id="recentList"></ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 Advanced Phone Lookup | Privacy Policy</p>
+        </footer>
     </div>
 
-    <div class="recent">
-      <h4>Recent Searches</h4>
-      <ul id="recentList"></ul>
-    </div>
-
-    <footer>
-      Made by <a href="skype:live:.cid.6a4827c093354752?chat" target="_blank">Ehtisham</a>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
